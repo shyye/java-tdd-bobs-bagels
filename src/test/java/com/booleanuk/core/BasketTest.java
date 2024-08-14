@@ -12,10 +12,16 @@ class BasketTest {
     @Test
     public void add() {
         Basket basket = new Basket();
-
-        // Return true if sucessfully added
         Assertions.assertTrue(basket.add("Unicorn Bagel"));
-        // Product has been added to list
         Assertions.assertEquals(1, basket.products.size());
+
+        basket.add("Unicorn Bagel");
+        Assertions.assertEquals(2, basket.products.get("Unicorn Bagel").get(0));    // Index 0 is numOfProducts
     }
+
+//    @Test
+//    public void remove() {
+//        Basket basket = new Basket();
+//
+//    }
 }
