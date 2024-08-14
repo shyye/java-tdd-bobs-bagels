@@ -16,7 +16,7 @@ class BasketTest {
         Assertions.assertEquals(1, basket.size);
 
         basket.add("Unicorn Bagel");
-        Assertions.assertEquals(2, basket.products.get("Unicorn Bagel").get(0));    // Index 0 is numOfProducts
+        Assertions.assertEquals(2, basket.products.get("Unicorn Bagel"));    // Index 0 is numOfProducts
 
         basket.add("Sunhaven Bagel");
         Assertions.assertFalse(basket.add("Moon Bagel"));    // Exceed maxCapacity
@@ -30,7 +30,7 @@ class BasketTest {
 
         // Remove first item, 1 left
         Assertions.assertTrue(basket.remove("Small Bagel"));
-        Assertions.assertEquals(1, basket.products.get("Small Bagel").get(0));
+        Assertions.assertEquals(1, basket.products.get("Small Bagel"));
 
         // Remove second item, 0 left (should be removed from list)
         Assertions.assertTrue(basket.remove("Small Bagel"));

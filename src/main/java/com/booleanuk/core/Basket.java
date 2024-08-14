@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class Basket {
     // TODO: Difference between ArrayList and simple List??
     // TODO: Should this be private?
-    HashMap<String, ArrayList<Integer>> products;
+    HashMap<String, Integer> products;
     int maxCapacity;
     int size = 0;
 
@@ -17,7 +17,7 @@ public class Basket {
         this.maxCapacity = 3;
     }
 
-    public boolean add(String product) {
+    public boolean add(String productName) {
         // Check if max capacity
         if (this.size >= maxCapacity) {
             System.out.println("Basket is full, can't add more items.");
@@ -25,27 +25,36 @@ public class Basket {
         }
 
         // List properties
-        ArrayList<Integer> details = new ArrayList<>();
         int numOfProducts;
-        int price = 0;  // TODO: Placehlder value
 
         // Update numOfProducts if already exist, otherwise just add
-        if (products.containsKey(product)) {
-            int previousNumOfProducts = products.get(product).get(0);   // Index 0 is numOfProduct, Index 1 is price
-            numOfProducts = previousNumOfProducts += 1;
+        if (products.containsKey(productName)) {
+            numOfProducts = products.get(productName) + 1;
         } else {
             numOfProducts = 1;
         }
 
-        // Add product details
-        details.add(numOfProducts);
-        details.add(price);
-
         // Add product
-        products.put(product, details);
+        products.put(productName, numOfProducts);
 
         // Update size
         size++;
+
+        return true;
+    }
+
+    public boolean remove(String productName) {
+
+        // Check if product does not exist
+        if (!this.products.containsKey(productName)) {
+            System.out.println("Product does not exist. Can't remove.");
+            return false;
+        }
+
+        // Update quantity if already in list
+        this.products.put(productName, this.products.get(productName) + 1);
+
+        size--;
 
         return true;
     }
