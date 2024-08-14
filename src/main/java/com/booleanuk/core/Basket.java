@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class Basket {
     // TODO: Difference between ArrayList and simple List??
-    // TODO: Should this be private?
+    // TODO: Should this be private variables?
     HashMap<String, Integer> products;
     int maxCapacity;
     int size = 0;
