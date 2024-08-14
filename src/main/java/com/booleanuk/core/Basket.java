@@ -31,7 +31,7 @@ public class Basket {
         // Update numOfProducts if already exist, otherwise just add
         if (products.containsKey(product)) {
             int previousNumOfProducts = products.get(product).get(0);   // Index 0 is numOfProduct, Index 1 is price
-            numOfProducts = previousNumOfProducts++;
+            numOfProducts = previousNumOfProducts += 1;
         } else {
             numOfProducts = 1;
         }
