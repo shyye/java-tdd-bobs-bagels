@@ -51,9 +51,15 @@ public class Basket {
             return false;
         }
 
-        // Update quantity if already in list
-        this.products.put(productName, this.products.get(productName) + 1);
+        // Update quantity if already in list, remove if it is the last product in this type/category
+        int newNumOfProducts = this.products.get(productName) - 1;
+        if (newNumOfProducts == 0) {
+            this.products.remove(productName);
+        } else {
+            this.products.put(productName, newNumOfProducts);
+        }
 
+        // Update size
         size--;
 
         return true;
