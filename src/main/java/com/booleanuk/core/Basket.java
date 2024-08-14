@@ -10,6 +10,7 @@ public class Basket {
     // TODO: Should this be private?
     HashMap<String, ArrayList<Integer>> products;
     int maxCapacity;
+    int size = 0;
 
     public Basket() {
         this.products = new HashMap<>();
@@ -18,7 +19,7 @@ public class Basket {
 
     public boolean add(String product) {
         // Check if max capacity
-        if (products.size() >= maxCapacity) {
+        if (this.size >= maxCapacity) {
             System.out.println("Basket is full, can't add more items.");
             return false;
         }
@@ -42,6 +43,10 @@ public class Basket {
 
         // Add product
         products.put(product, details);
+
+        // Update size
+        size++;
+
         return true;
     }
 }
