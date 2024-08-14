@@ -22,9 +22,21 @@ class BasketTest {
         Assertions.assertFalse(basket.add("Moon Bagel"));    // Exceed maxCapacity
     }
 
-//    @Test
-//    public void remove() {
-//        Basket basket = new Basket();
-//
-//    }
+    @Test
+    public void remove() {
+        Basket basket = new Basket();
+        basket.add("Small Bagel");
+        basket.add("Small Bagel");
+
+        // Remove first item, 1 left
+        Assertions.assertTrue(basket.remove("Small Bagel"));
+        Assertions.assertEquals(1, basket.products.get("Small Bagel").get(0));
+
+        // Remove second item, 0 left (should be removed from list)
+        Assertions.assertTrue(basket.remove("Small Bagel"));
+        Assertions.assertFalse(basket.products.containsKey("Small Bagel"));
+
+        // Remove not existing item
+        Assertions.assertFalse(basket.remove("Small Bagel"));
+    }
 }
