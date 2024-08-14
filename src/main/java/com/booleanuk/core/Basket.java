@@ -1,8 +1,6 @@
 package com.booleanuk.core;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Basket {
@@ -62,6 +60,15 @@ public class Basket {
         // Update size
         size--;
 
+        return true;
+    }
+
+    public boolean changeCapacity(int newMaxCapacity) {
+        if (newMaxCapacity < 1) {
+            System.out.println("Invalid max capacity. Can't be less than 1");
+            return false;
+        }
+        this.maxCapacity = newMaxCapacity;
         return true;
     }
 }
