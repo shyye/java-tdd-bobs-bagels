@@ -11,6 +11,6 @@ class BasketTest {
     @Test
     public void add() {
         Basket basket = new Basket();
-        basket.add("Unicorn Bagel");
+        Assertions.assertTrue(basket.add("Unicorn Bagel"));
     }
 }
