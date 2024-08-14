@@ -39,4 +39,17 @@ class BasketTest {
         // Remove not existing item
         Assertions.assertFalse(basket.remove("Small Bagel"));
     }
+
+    @Test
+    public void changeCapacity() {
+        Basket basket = new Basket();
+
+        // Change to valid max capacity
+        Assertions.assertTrue(basket.changeCapacity(5));
+        Assertions.assertEquals(5, basket.maxCapacity);
+
+        // Change to invalid max capacity
+        Assertions.assertFalse(basket.changeCapacity(0));
+        Assertions.assertFalse(basket.changeCapacity(-1));
+    }
 }
